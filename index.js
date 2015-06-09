@@ -4,7 +4,7 @@ var app = express();
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
-app.get('/', function(request, response) {
+app.get('/', function(req, res) {
   //response.send('Hello World!2');
   res.sendfile(path.join(__dirname + '/views/layout.html'));
 });
