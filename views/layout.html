@@ -68,6 +68,9 @@
                     <li>
                         <a class="page-scroll" href="#portfolio">Portfolio</a>
                     </li>
+                    <li>
+                        <div id="example">Name</div>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -280,7 +283,7 @@
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/flask.png" width="430px"  class="img-responsive" alt="">
+                        <img src="img/commingSooon.png" width="430px"  class="img-responsive" alt="">
                     </a>
                     <div class="portfolio-caption">
                         <h4>CRUD</h4>
@@ -314,11 +317,7 @@
                         <h4>Angular App</h4>
                         <p class="text-muted">Angular</p>
                     </div>  
-                </div> 
-
-
-
-                
+                </div> <!-- End of third row of Gallery -->
             </div>  <!-- End of Row -->
     </section>
 
@@ -603,6 +602,16 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="js/agency.js"></script>
+    <script src="js/react.js"></script>
+    <script src="js/JSXTransformer.js"></script>
+
+
+    <script type="text/jsx">
+        React.render(
+        <h1>Hello, world!</h1>,
+        document.getElementById('example')
+      );
+    </script>
 
 </body>
 
