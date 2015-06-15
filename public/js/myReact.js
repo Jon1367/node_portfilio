@@ -1,5 +1,5 @@
 // Get user's time with react js
-
+var test = 'hello';
  // basic react js render element 
 var TimeApplication = React.createClass({
   render: function() {
@@ -36,6 +36,13 @@ React.render(
       return null;
     },
     render: function() {
+
+    // React.render(
+
+    //   var title =   his.props.title.toString();
+    //   React.createElement('h4', null,title),
+    //   document.getElementById('skillsRow')
+    // );
       return (
         <div>
           <h4> {this.props.title} </h4>
@@ -65,16 +72,7 @@ React.render(
       );
     }
   });
-  // uesless
-  var Skillbook = React.createClass({
-    render: function() {
-      return (
-        <div>
-          <SkillList/>
-        </div>
-      );
-    }
-  });
+
   React.render(
     //renders skill list that holds all the information
     <SkillList/>,
