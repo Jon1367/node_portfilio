@@ -3,8 +3,14 @@
  // basic react js render element 
 var TimeApplication = React.createClass({
   render: function() {
-    var time = new Date().getTimezoneOffset();
-      return <p>{time}</p>;
+
+    var currentdate = new Date();
+    // Get Timezone data
+    var datetime = currentdate.getDay() + "/"+currentdate.getMonth() 
+    + "/" + currentdate.getFullYear() + " @ " 
+    + currentdate.getHours() + ":" 
+    + currentdate.getMinutes() + ":" + currentdate.getSeconds();
+      return <p>{datetime}</p>;
     }
     });
     var start = new Date().getTime();
@@ -15,71 +21,61 @@ var TimeApplication = React.createClass({
       );
     }, 50);
 
-    
 // Create element in React js
 React.render(
   React.createElement('h1', null, 'Hello, world!'),
   document.getElementById('createClass')
 );
 
-// Example
-
-
-  var Recipe = React.createClass({
+// using props & states
+  var Skill = React.createClass({
     getInitialState: function () {
-      /* remember, we really invoked a function and passed in args. */
+
       console.log(this.props)
-      /* Recipe.getInitialState(): must return an object or null */
+
       return null;
     },
     render: function() {
       return (
+
         <div>
-          <h2> {this.props.title} </h2>
-          <p> {this.props.instructions} </p>
+          <h4> {this.props.title} </h4>
+          <p> {this.props.description} </p>
         </div>
       );
     }
   });
-  var RecipeList = React.createClass({
+  var SkillList = React.createClass({
     render: function() {
       return (
         <div>
-          RecipeList component text
-          <Recipe
-            title="Stuffed Chard"
-            instructions="Stuff the chard..."
+          <Skill
+            title="DataBase"
+            description="Have an understanding of relational and non-relational Database. Can create application with Lamp or mean stack. Knowledge in Mongo DB and MySQL."
           />
-          <Recipe
-            title="Eggplant and Polenta"
-            instructions="Put the eggplant in the oven..."
+          <Skill
+            title="Web Apis"
+            description="Has experience with social media api. Can create application with various api. Can create api if needed."
+          />
+          <Skill
+            title="Web Security"
+            description="Can create secure application with SSL."
           />
         </div>
       );
     }
   });
-  var RecipeForm = React.createClass({
-    render: function() {
-      return (
-        <div >
-          RecipeForm component text
-        </div>
-      );
-    }
-  });
-  var RecipeBook = React.createClass({
+  // uesless
+  var Skillbook = React.createClass({
     render: function() {
       return (
         <div>
-          Hello, world! I am a RecipeBook.
-          <RecipeList/>
-          <RecipeForm/>
+          <SkillList/>
         </div>
       );
     }
   });
   React.render(
-    <RecipeBook />,
-    document.getElementById('app-container')
+    <SkillList/>,
+    document.getElementById('skillsRow')
   );
-  </script>
