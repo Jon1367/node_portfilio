@@ -7,7 +7,9 @@
     "start": "node index.js"
   },
   "dependencies": {
+    "delorean": "^0.9.4",
     "express": "~4.9.x",
+    "mcfly": "0.0.10",
     "react": "^0.13.3"
   },
   "engines": {

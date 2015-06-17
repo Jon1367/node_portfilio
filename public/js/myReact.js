@@ -36,13 +36,6 @@ React.render(
       return null;
     },
     render: function() {
-
-    // React.render(
-
-    //   var title =   his.props.title.toString();
-    //   React.createElement('h4', null,title),
-    //   document.getElementById('skillsRow')
-    // );
       return (
         <div>
           <h4> {this.props.title} </h4>
@@ -55,7 +48,6 @@ React.render(
     render: function() {
       return (
         <div>
-
           <Skill
             title="DataBase"
             description="Have an understanding of relational and non-relational Database. Can create application with Lamp or mean stack. Knowledge in Mongo DB and MySQL."
@@ -78,3 +70,90 @@ React.render(
     <SkillList/>,
     document.getElementById('skillsRow')
   );
+
+
+  /** @jsx React.DOM */
+
+/** @jsx React.DOM */
+
+ var Flux = new McFly();
+
+        /** Store */
+
+  _skills = [];
+
+  function addSkill(text){
+    _skills.push(text);
+  }
+
+        var SkillStore = Flux.createStore({
+            getSkills: function(){
+               return _skills;
+            }
+        }, function(payload){
+            if(payload.actionType === "ADD_SKILL") {
+                addSkill(payload.text);
+                SkillStore.emitChange();
+            }
+        });
+
+        /** Actions */
+
+        var SkillActions = Flux.createActions({
+            addSkill: function(text){
+               return {
+                  actionType: "ADD_SKILL",
+                  text: text
+               }
+            }
+        });
+
+        function getSkills(){
+           return {
+               skills: SkillStore.getSkills()
+           }
+        }
+
+        /** Controller View */
+
+        var SkillsController = React.createClass({
+            mixins: [SkillStore.mixin],
+            getInitialState: function(){
+                return getSkills();
+            },
+            storeDidChange: function() {
+                this.setState(getSkills());
+            },
+            render: function() {
+                return <Skills skills={this.state.skills} />;
+            }
+        });
+
+        /** Component */
+
+        var Skills = React.createClass({
+            addSkill: function(){
+                SkillActions.addSkill({_id: Math.floor(Math.random()*1000000)});
+
+            },
+            render: function() {
+                return (
+                <div className="recipes_app">
+                    <ul className="recipes">
+                        { this.props.skills.map(function(skill, index){
+                            return <li key={index}>skill {index} : {skill._id}</li>
+                        })}
+                    </ul>
+                    <button onClick={this.addSkill}> Skill</button>
+                </div>
+                )
+            }
+        });
+
+  window.SkillsData = [
+    {title: "DataBase", instructions: "Have an understanding of relational and non-relational Database. Can create application with Lamp or mean stack. Knowledge in Mongo DB and MySQL."},
+    {title: "Eggplant and Polenta", instructions: "Put the eggplant in the oven..."}
+  ];
+        React.render(<SkillsController />,
+          document.getElementById('skillsRow')
+           );
