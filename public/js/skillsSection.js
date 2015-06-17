@@ -92,8 +92,8 @@ React.render(
             },
             render: function() {
                 return (
-                <div className="recipes_app">
-                    <ul className="recipes">
+                <div >
+                    <ul>
                         { this.props.skills.map(function(skill, index){
                             return <li key={index}>skill {index} : {skill._id}</li>
                         })}
