@@ -1,5 +1,3 @@
-// Get user's time with react js
-var test = 'hello';
  // basic react js render element 
 var TimeApplication = React.createClass({
   render: function() {
@@ -27,54 +25,10 @@ React.render(
   document.getElementById('heading')
 );
 
-// using props & states
-  var Skill = React.createClass({
-    getInitialState: function () {
-      // check if receive props
-      console.log(this.props)
-      //has to return null 
-      return null;
-    },
-    render: function() {
-      return (
-        <div>
-          <h4> {this.props.title} </h4>
-          <p> {this.props.description} </p>
-        </div>
-      );
-    }
-  });
-  var SkillList = React.createClass({
-    render: function() {
-      return (
-        <div>
-          <Skill
-            title="DataBase"
-            description="Have an understanding of relational and non-relational Database. Can create application with Lamp or mean stack. Knowledge in Mongo DB and MySQL."
-          />
-          <Skill
-            title="Web Apis"
-            description="Has experience with social media api. Can create application with various api. Can create api if needed."
-          />
-          <Skill
-            title="Web Security"
-            description="Can create secure application with SSL."
-          />
-        </div>
-      );
-    }
-  });
-
-  React.render(
-    //renders skill list that holds all the information
-    <SkillList/>,
-    document.getElementById('skillsRow')
-  );
 
 
-  /** @jsx React.DOM */
 
-/** @jsx React.DOM */
+/** FLUX */
 
  var Flux = new McFly();
 
@@ -150,10 +104,10 @@ React.render(
             }
         });
 
-  window.SkillsData = [
+  window.skillsData = [
     {title: "DataBase", instructions: "Have an understanding of relational and non-relational Database. Can create application with Lamp or mean stack. Knowledge in Mongo DB and MySQL."},
-    {title: "Eggplant and Polenta", instructions: "Put the eggplant in the oven..."}
+    {title: "Web Apis", instructions: "Has experience with social media api. Can create application with various api. Can create api if needed"}
   ];
-        React.render(<SkillsController />,
+        React.render(<SkillsController data={window.skillsData} />,
           document.getElementById('skillsRow')
            );
