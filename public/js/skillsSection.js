@@ -87,7 +87,7 @@ React.render(
 
         var Skills = React.createClass({
             addSkill: function(){
-                SkillActions.addSkill({_id: Math.floor(Math.random()*1000000)});
+                SkillActions.addSkill({_id: "Have an understanding of relational and non-relational Database. Can create application with Lamp or mean stack. Knowledge in Mongo DB and MySQL."});
 
             },
             render: function() {
@@ -104,7 +104,7 @@ React.render(
             }
         });
 
-  window.skillsData = [
+var skillsData = [
     {title: "DataBase", instructions: "Have an understanding of relational and non-relational Database. Can create application with Lamp or mean stack. Knowledge in Mongo DB and MySQL."},
     {title: "Web Apis", instructions: "Has experience with social media api. Can create application with various api. Can create api if needed"}
   ];
